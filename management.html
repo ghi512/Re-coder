@@ -29,6 +29,7 @@
                 background : lightslategray;
             }
         </style>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     </head>
     <body>
         <nav>
@@ -38,18 +39,52 @@
         </nav>    
         <table>
             <thead>
-            <tr><th>NAME</th><th>DATE</th><th>EMAIL</th><th></th></tr>
+            <tr>
+                <th>NAME</th>
+                <th>DATE</th>
+                <th>EMAIL</th>
+                <th><input type="checkbox" name="c" id='all'></th>
+            </tr>
             </thead>
             <tbody id="tb">
-            <tr><td>김민지</td><td>2022/11/16</td><td>kim@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
-            <tr><td>이진</td><td>2022/11/16</td><td>lee@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
-            <tr><td>장혜림</td><td>2022/11/16</td><td>jang@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
-            <tr><td>차민서</td><td>2022/11/16</td><td>cha@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
+            <tr>
+                <td>김민지</td>
+                <td>2022/11/16</td>
+                <td>kim@gmail.com</td>
+                <td><input type="checkbox" name="c"></td>
+            </tr>
+            <tr>
+                <td>이진</td>
+                <td>2022/11/16</td>
+                <td>lee@gmail.com</td>
+                <td><input type="checkbox" name="c"></td>
+            </tr>
+            <tr>
+                <td>장혜림</td>
+                <td>2022/11/16</td>
+                <td>jang@gmail.com</td>
+                <td><input type="checkbox" name="c"></td>
+            </tr>
+            <tr>
+                <td>차민서</td>
+                <td>2022/11/16</td>
+                <td>cha@gmail.com</td>
+                <td><input type="checkbox" name="c"></td>
+            </tr>
             </tbody>
         </table><br>
         <button onclick="addRow()">add new member</button>
         <button onclick="delRow()">delete member</button>
         <script>
+            $('#all').click(function() {
+                if($("input:checkbox[id='all']").prop("checked")) {
+                    $("input[type=checkbox]").prop("checked",true);
+                }
+                else
+                {
+                    $("input[type=checkbox]").prop("checked",false);
+                }
+            });
             function addRow() {
                 var tb = document.getElementById("tb");
                 var row = tb.insertRow(tb.rows.length);
