@@ -2,25 +2,30 @@
 <html>
   <head>
     <style>
-      nav{
+      body{
         position: relative;
         background-color: black;
-        width: 100%;
-        height:100%;
+        top:20%;
+        bottom:20%;
+        width: 100%; 
+        height: 100%;
+      }
+      #right {
+         position : relative;
+         top : 5px;
+         right : 10px;
       }
       ul{ 
-        text-align: center;
+        line-height: 25px;;
         list-style-type: none; 
         margin:0;
-        padding:0;
+        padding:0 20px;
         overflow: hidden;
       }
       ul li{
         display:block;
         list-style-type: none;
         padding: 10px 40px;
-        float:left;
-        text-align: center;
       }
       li a{
         color:white;
@@ -29,21 +34,23 @@
         font-weight: bold;
         display:block;
         padding: 12px 15px;
-        font-size:12px;
+        font-size:25px;
         font-family: "Trebuchet MS",Dotum,Arial;
       }
-      a:hover{
+      li:hover{
         background-color: lightslategray;
       }
     </style>
   </head>
   <body>
+   
     <nav>
       <ul id="menu">
         <li><a href="main.html" target="_self">MAIN</a>
         <li><a href="chat.html" target="_self">CHAT</a>
         <li><a href="work_manage.html" target="_self">MANAGEMENT</a>
         <li><a href="QnA.html" target="_self">Q&A</a>
+        <li><a href="login.html" target="_self">LOGIN</a>
       </ul>
     </nav>
   </body>
