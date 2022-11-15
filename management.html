@@ -6,6 +6,27 @@
             @import url(bnw.css);
             h3 {
                 color : white;
+            }            
+            table {
+                color : beige;
+                border-collapse : collapse;
+                width : 100%;
+            }
+            td, th {
+                text-align : left;
+                padding : 10px;
+                height : 20px;
+                width : 100px;
+            }
+            thead,tfoot {
+                background : lightgray;
+                color : gray;
+            }
+            tbody tr:nth-child(even) {
+                background : rgb(33, 33, 33);
+            }
+            tbody tr:hover {
+                background : lightslategray;
             }
         </style>
     </head>
@@ -14,7 +35,43 @@
             <ul id="menu">
               <li><a href="index.html" target="_self">MAIN</a>
             </ul>
-          </nav>
-        <h3>직원 관리</h3>
+        </nav>    
+        <table>
+            <thead>
+            <tr><th>NAME</th><th>DATE</th><th>EMAIL</th><th></th></tr>
+            </thead>
+            <tbody id="tb">
+            <tr><td>김민지</td><td>2022/11/16</td><td>kim@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
+            <tr><td>이진</td><td>2022/11/16</td><td>lee@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
+            <tr><td>장혜림</td><td>2022/11/16</td><td>jang@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
+            <tr><td>차민서</td><td>2022/11/16</td><td>cha@gmail.com</td><td><input type="checkbox" name="c"></td></tr>
+            </tbody>
+        </table><br>
+        <button onclick="addRow()">add new member</button>
+        <button onclick="delRow()">delete member</button>
+        <script>
+            function addRow() {
+                var tb = document.getElementById("tb");
+                var row = tb.insertRow(tb.rows.length);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                cell1.innerHTML = 'new member';
+                cell2.innerHTML = '2022/11/16';
+                cell3.innerHTML = 'new@gmail.com';
+                cell4.innerHTML = "<input type='checkbox' name='c'>";
+            }
+            function delRow() {
+                var tb = document.getElementById("tb");
+                for(var i=1; i<tb.rows.length; i++) {
+                    var chk = tb.rows[i].cells[3].childNodes[0].checked;
+                    if(chk){
+                        tb.deleteRow(i);
+                        i--;
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
