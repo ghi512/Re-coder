@@ -64,7 +64,7 @@
             }
             function delRow() {
                 var tb = document.getElementById("tb");
-                for(var i=1; i<tb.rows.length; i++) {
+                for(var i=0; i<tb.rows.length; i++) {
                     var chk = tb.rows[i].cells[3].childNodes[0].checked;
                     if(chk){
                         tb.deleteRow(i);
