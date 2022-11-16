@@ -6,19 +6,22 @@
         <style> 
             @import url(others.css);
           h3{
-            color:white;
+            /* 13:49분에 수정한 내용 : h3 글자 색 */
+            color:black; 
             text-align: center;
           }
+          /* 14:10분에 수정한 내용 : 테두리 만들기, background도형 사각형으로 변경 */
           #background{
             position:absolute;
             width : 300px;
-            height : 480px;
-            top : 130%;
+            height : 384px;
+            top : 165%;
             left : 50%;
             margin-top : -10px;
-            margin-left : -150px;
+            margin-left : -155px;
             background : skyblue;
-            border-radius : 40px;
+            border-left : 10px solid black;
+            border-right : 10px solid black;
           }
           p{
             
@@ -37,11 +40,14 @@
             top : 130%;
             left : 50%;
             margin-top : -10px;
-            margin-left : -150px;
+            margin-left : -155px;
             width : 300px;
             height : 33px;
             background: rgb(100, 99, 99);
             border-radius : 200px 200px 0px 0px;
+            border-top: 10px solid black;
+            border-left : 10px solid black;
+            border-right : 10px solid black;
           }
           /* 창을 크게 만들면 원의 비율이 달라져서 고민했는데
           topMenuBar <div> 안에 상속을 시켰더니 해결됨 */
@@ -82,11 +88,15 @@
             top : 500%;
             left : 50%;
             margin-top : -10px;
-            margin-left : -150px;
+            margin-left : -155px;
             width : 300px;
             height : 90px;
-            background:white;
+            /* 13:52분에 수정한 내용 : bottomMenuBar 색 변경 */
+            background:rgb(253, 255, 162);
             border-radius :  0px 0px 50px 50px;
+            border-bottom: 10px solid black;
+            border-left : 10px solid black;
+            border-right : 10px solid black;
             /* z-index: 0; */
           }
           .button{
