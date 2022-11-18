@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>management</title>
-        <link href="https://www.flaticon.com/svg/vstatic/svg/5069/5069162.svg?token=exp=1668531810~hmac=b630dfcc00b3384a5aa2e5f34cf27c7d" rel="shortcut icon" type="image/x-icon">
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/4372/4372820.png">
         <style>
             @import url(others.css);
             h3 {
@@ -37,6 +37,7 @@
         </style>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     </head>
+    <td contenteditable = "false"></td>
     <body>
         <nav>
             <ul id="menu">
@@ -58,37 +59,38 @@
             </thead>
             <tbody id="tb">
             <tr>
-                <td>김민지</td>
-                <td>2022/11/16</td>
-                <td>kim@gmail.com</td>
-                <td>Planning Dept</td>
+                <td class = "tbTD" contenteditable = "false">김민지</td>
+                <td class = "tbTD" contenteditable = "false">2022/11/16</td>
+                <td class = "tbTD" contenteditable = "false">kim@gmail.com</td>
+                <td class = "tbTD" contenteditable = "false">Planning Dept</td>
                 <td><input type="checkbox" name="c"></td>
             </tr>
             <tr>
-                <td>이진</td>
-                <td>2022/11/16</td>
-                <td>lee@gmail.com</td>
-                <td>Mnagement Dept</td>
+                <td class = "tbTD" contenteditable = "false">이진</td>
+                <td class = "tbTD" contenteditable = "false">2022/11/16</td>
+                <td class = "tbTD" contenteditable = "false">lee@gmail.com</td>
+                <td class = "tbTD" contenteditable = "false">Mnagement Dept</td>
                 <td><input type="checkbox" name="c"></td>
             </tr>
             <tr>
-                <td>장혜림</td>
-                <td>2022/11/16</td>
-                <td>jang@gmail.com</td>
-                <td>Accounting Dept</td>
+                <td class = "tbTD" contenteditable = "false">장혜림</td>
+                <td class = "tbTD" contenteditable = "false">2022/11/16</td>
+                <td class = "tbTD" contenteditable = "false">jang@gmail.com</td>
+                <td class = "tbTD" contenteditable = "false">Accounting Dept</td>
                 <td><input type="checkbox" name="c"></td>
             </tr>
             <tr>
-                <td>차민서</td>
-                <td>2022/11/16</td>
-                <td>cha@gmail.com</td>
-                <td>General Affairs Dept</td>
+                <td class = "tbTD" contenteditable = "false">차민서</td>
+                <td class = "tbTD" contenteditable = "false">2022/11/16</td>
+                <td class = "tbTD" contenteditable = "false">cha@gmail.com</td>
+                <td class = "tbTD" contenteditable = "false">General Affairs Dept</td>
                 <td><input type="checkbox" name="c"></td>
             </tr>
             </tbody>
         </table><br>
         <button onclick="addRow()">add new member</button>
         <button onclick="delRow()">delete member</button>
+        <button>modify</button>
         <script>
             $('#all').click(function() {
                 if($("input:checkbox[id='all']").prop("checked")) {
@@ -100,19 +102,22 @@
                 }
             });
             function addRow() {
-                var tb = document.getElementById("tb");
-                var row = tb.insertRow(tb.rows.length);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                var cell4 = row.insertCell(3)
-                var cell5 = row.insertCell(4);
-                cell1.innerHTML = 'new member';
-                cell2.innerHTML = '2022/11/16';
-                cell3.innerHTML = 'new@gmail.com';
-                cell4.innerHTML = 'New Dept';
+                var row;
+                row = document.all["tb"].insertRow();
+
+                var cell1 = row.insertCell();
+                var cell2 = row.insertCell();
+                var cell3 = row.insertCell();
+                var cell4 = row.insertCell();
+                var cell5 = row.insertCell();
+                cell1.innerHTML = "<input type='text' style='border:0px; background-color:transparent'/>";
+                cell2.innerHTML = "<input type='text' style='border:0px; background-color:transparent'/>";
+                cell3.innerHTML = "<input type='text' style='border:0px; background-color:transparent'/>";
+                cell4.innerHTML = "<input type='text' style='border:0px; background-color:transparent'/>";
                 cell5.innerHTML = "<input type='checkbox' name='c'>";
+            
             }
+
             function delRow() {
                 var tb = document.getElementById("tb");
                 for(var i=0; i<tb.rows.length; i++) {
@@ -123,6 +128,27 @@
                     }
                 }
             }
+        </script>
+
+        <script type="text/javascript">
+            contents = document.getElementsByClassName("tbTD");
+
+            document.addEventListener("DOMContentLoaded",function() {
+                Array.from(contents).forEach(function(content){
+                    content.addEventListener("dblclick",function(event) {
+                        Array.from(contents).forEach(function(defaultVal) {
+                            defaultVal.contentEditable = false;
+                            defaultVal.style.border = "0px";
+                        });
+
+                        if(content.isContentEditable == false) {
+                            content.contentEditable = true;
+                            content.textContent = "";
+                            content.focus();
+                        }
+                    });
+                });
+            });
         </script>
     </body>
 </html>
